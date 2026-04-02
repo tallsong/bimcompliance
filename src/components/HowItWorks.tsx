@@ -1,25 +1,28 @@
 import { motion } from "motion/react";
 import { Upload, Brain, CheckCircle2 } from "lucide-react";
+import { useLanguage } from "../LanguageContext";
 
 export default function HowItWorks() {
+  const { t } = useLanguage();
+
   const steps = [
     {
       icon: <Upload className="w-10 h-10 text-brand" />,
-      title: "Upload BIM Models",
-      desc: "Securely upload your IFC or Revit models (up to 100MB+). Our system supports all major BIM formats and versions.",
-      tag: "Step 1"
+      title: t('how.step1Title'),
+      desc: t('how.step1Desc'),
+      tag: t('how.step1Tag')
     },
     {
       icon: <Brain className="w-10 h-10 text-brand" />,
-      title: "AI Parsing & Mapping",
-      desc: "Our Agentic AI semantically maps geometry and materials against thousands of pages of DIN, EN, and ESG standards.",
-      tag: "Step 2"
+      title: t('how.step2Title'),
+      desc: t('how.step2Desc'),
+      tag: t('how.step2Tag')
     },
     {
       icon: <CheckCircle2 className="w-10 h-10 text-brand" />,
-      title: "Actionable Feedback",
-      desc: "Receive instant alerts (OK / Risk / Violation) with detailed explanations and automated suggestions for fixes.",
-      tag: "Step 3"
+      title: t('how.step3Title'),
+      desc: t('how.step3Desc'),
+      tag: t('how.step3Tag')
     }
   ];
 
@@ -27,9 +30,9 @@ export default function HowItWorks() {
     <section id="how-it-works" className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How it Works</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t('how.sectionTitle')}</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Our agentic AI integrates seamlessly into your existing BIM workflow, providing real-time compliance intelligence.
+            {t('how.sectionSubtitle')}
           </p>
         </div>
 
