@@ -1,7 +1,10 @@
 import { motion } from "motion/react";
 import { Mail, Building2, User, Send } from "lucide-react";
+import { useLanguage } from "../LanguageContext";
 
 export default function ContactForm() {
+  const { t, language } = useLanguage();
+
   return (
     <section id="contact" className="py-24 bg-white relative overflow-hidden">
       {/* Background decoration */}
@@ -15,10 +18,12 @@ export default function ContactForm() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              Ready to Automate Your <span className="text-gradient">BIM Compliance?</span>
+              {t('contact.titlePart1')}
+              <span className="text-gradient">{t('contact.titleHighlight')}</span>
+              {language === 'de' && t('contact.titlePart2')}
             </h2>
             <p className="text-lg text-gray-600 mb-10 leading-relaxed">
-              Join the waitlist for our exclusive enterprise pilot program. Our team will reach out to discuss how BimCompliance can integrate with your existing Arcadis, Revit, or IFC workflows.
+              {t('contact.description')}
             </p>
             
             <div className="space-y-6">
@@ -27,7 +32,7 @@ export default function ContactForm() {
                   <Mail className="w-6 h-6 text-brand" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900">Email Us</h4>
+                  <h4 className="font-semibold text-gray-900">{t('contact.emailTitle')}</h4>
                   <p className="text-sm text-gray-600">founders@bimcompliance.com</p>
                 </div>
               </div>
@@ -36,8 +41,8 @@ export default function ContactForm() {
                   <Building2 className="w-6 h-6 text-brand" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900">Enterprise Ready</h4>
-                  <p className="text-sm text-gray-600">Tailored for global engineering consulting firms.</p>
+                  <h4 className="font-semibold text-gray-900">{t('contact.enterpriseTitle')}</h4>
+                  <p className="text-sm text-gray-600">{t('contact.enterpriseDesc')}</p>
                 </div>
               </div>
             </div>
@@ -51,7 +56,7 @@ export default function ContactForm() {
           >
             <form action="https://formspree.io/f/YOUR_ENDPOINT" method="POST" className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
+                <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">{t('contact.nameLabel')}</label>
                 <div className="relative">
                   <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <input 
@@ -59,14 +64,14 @@ export default function ContactForm() {
                     id="name" 
                     name="name" 
                     required 
-                    placeholder="Jane Doe"
+                    placeholder={t('contact.namePlaceholder')}
                     className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand focus:border-brand transition-all outline-none"
                   />
                 </div>
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">Work Email</label>
+                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">{t('contact.emailLabel')}</label>
                 <div className="relative">
                   <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <input 
@@ -74,14 +79,14 @@ export default function ContactForm() {
                     id="email" 
                     name="email" 
                     required 
-                    placeholder="jane@company.com"
+                    placeholder={t('contact.emailPlaceholder')}
                     className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand focus:border-brand transition-all outline-none"
                   />
                 </div>
               </div>
               
               <div>
-                <label htmlFor="company" className="block text-sm font-semibold text-gray-700 mb-2">Company Name</label>
+                <label htmlFor="company" className="block text-sm font-semibold text-gray-700 mb-2">{t('contact.companyLabel')}</label>
                 <div className="relative">
                   <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <input 
@@ -89,7 +94,7 @@ export default function ContactForm() {
                     id="company" 
                     name="company" 
                     required 
-                    placeholder="Arcadis / Engineering Firm"
+                    placeholder={t('contact.companyPlaceholder')}
                     className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand focus:border-brand transition-all outline-none"
                   />
                 </div>
@@ -99,11 +104,11 @@ export default function ContactForm() {
                 type="submit" 
                 className="w-full bg-brand text-white py-4 rounded-xl font-bold text-lg hover:bg-brand-dark transition-all shadow-lg shadow-brand/20 flex items-center justify-center gap-2"
               >
-                Request Pilot Access <Send className="w-5 h-5" />
+                {t('contact.btnSubmit')} <Send className="w-5 h-5" />
               </button>
               
               <p className="text-[10px] text-center text-gray-400 uppercase tracking-widest">
-                Protected by enterprise-grade security
+                {t('contact.securityText')}
               </p>
             </form>
           </motion.div>

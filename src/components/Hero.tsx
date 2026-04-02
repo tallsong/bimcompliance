@@ -1,7 +1,10 @@
 import { motion } from "motion/react";
 import { ArrowRight, Play, CheckCircle2, Building2 } from "lucide-react";
+import { useLanguage } from "../LanguageContext";
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative pt-20 pb-24 lg:pt-32 lg:pb-40 overflow-hidden">
       {/* Background decoration */}
@@ -21,35 +24,35 @@ export default function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-brand"></span>
             </span>
-            Agentic AI for BIM Compliance
+            {t('hero.badge')}
           </span>
           
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-8 max-w-4xl mx-auto leading-[1.1]">
-            Automate BIM Compliance with <span className="text-gradient">Agentic AI</span>
+            {t('hero.titlePart1')}<span className="text-gradient">{t('hero.titleHighlight')}</span>
           </h1>
           
           <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Eliminate manual checking, costly rework, and project delays. Our real-time AI intelligence validates BIM models against DIN, EN, and ESG standards instantly.
+            {t('hero.description')}
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
             <a href="#contact" className="w-full sm:w-auto bg-brand text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-brand-dark transition-all flex items-center justify-center gap-2 shadow-lg shadow-brand/20">
-              Request Pilot <ArrowRight className="w-5 h-5" />
+              {t('hero.btnPrimary')} <ArrowRight className="w-5 h-5" />
             </a>
             <button className="w-full sm:w-auto bg-white text-gray-900 border border-gray-200 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-50 transition-all flex items-center justify-center gap-2 shadow-sm">
-              <Play className="w-5 h-5 fill-current" /> Watch Demo
+              <Play className="w-5 h-5 fill-current" /> {t('hero.btnSecondary')}
             </button>
           </div>
 
           <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 text-sm font-medium text-gray-500">
             <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-green-500" /> DIN/EN Standards
+              <CheckCircle2 className="w-4 h-4 text-green-500" /> {t('hero.check1')}
             </div>
             <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-green-500" /> Real-time IFC Parsing
+              <CheckCircle2 className="w-4 h-4 text-green-500" /> {t('hero.check2')}
             </div>
             <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-green-500" /> ESG Compliance
+              <CheckCircle2 className="w-4 h-4 text-green-500" /> {t('hero.check3')}
             </div>
           </div>
         </motion.div>
@@ -68,7 +71,7 @@ export default function Hero() {
                   <div className="w-16 h-16 bg-brand/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                     <Building2 className="w-8 h-8 text-brand" />
                   </div>
-                  <p className="text-gray-400 font-mono text-sm">IFC_Model_Viewer_v2.0.exe</p>
+                  <p className="text-gray-400 font-mono text-sm">{t('hero.mockupFile')}</p>
                 </div>
                 {/* Simulated UI elements */}
                 <div className="absolute top-4 right-4 w-48 h-32 bg-white rounded-lg shadow-lg border border-gray-100 p-3 text-left">
@@ -77,7 +80,7 @@ export default function Hero() {
                   <div className="h-2 w-3/4 bg-gray-100 rounded" />
                   <div className="mt-4 flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-red-500" />
-                    <span className="text-[10px] font-bold text-red-600">DIN 18040-1 VIOLATION</span>
+                    <span className="text-[10px] font-bold text-red-600">{t('hero.mockupViolation')}</span>
                   </div>
                 </div>
              </div>
