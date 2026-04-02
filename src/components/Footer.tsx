@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center gap-2">
             <Building2 className="w-6 h-6 text-brand" />
-            <span className="font-bold text-lg tracking-tight text-gray-900">Bimcompliance</span>
+            <span className="font-bold text-lg tracking-tight text-gray-900">BimCompliance</span>
           </div>
           
           <div className="flex flex-wrap justify-center gap-8 text-sm text-gray-500 font-medium">
@@ -17,7 +17,7 @@ export default function Footer() {
           </div>
           
           <div className="text-sm text-gray-400">
-            © 2026 Bimcompliance. All rights reserved.
+            © 2026 BimCompliance. All rights reserved.
           </div>
         </div>
       </div>

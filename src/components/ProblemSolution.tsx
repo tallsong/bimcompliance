@@ -58,7 +58,7 @@ export default function ProblemSolution() {
           >
             <h3 className="text-xl font-bold text-gray-900 mb-8 flex items-center gap-3">
               <span className="w-8 h-8 rounded-full bg-brand/20 flex items-center justify-center text-brand text-sm">02</span>
-              The Bimcompliance Edge
+              The BimCompliance Edge
             </h3>
             <div className="space-y-8">
               {solutions.map((item, i) => (

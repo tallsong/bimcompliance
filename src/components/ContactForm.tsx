@@ -18,7 +18,7 @@ export default function ContactForm() {
               Ready to Automate Your <span className="text-gradient">BIM Compliance?</span>
             </h2>
             <p className="text-lg text-gray-600 mb-10 leading-relaxed">
-              Join the waitlist for our exclusive enterprise pilot program. Our team will reach out to discuss how Bimcompliance can integrate with your existing Arcadis, Revit, or IFC workflows.
+              Join the waitlist for our exclusive enterprise pilot program. Our team will reach out to discuss how BimCompliance can integrate with your existing Arcadis, Revit, or IFC workflows.
             </p>
             
             <div className="space-y-6">

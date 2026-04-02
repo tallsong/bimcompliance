@@ -12,7 +12,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center gap-2">
             <Building2 className="w-8 h-8 text-brand" />
-            <span className="font-bold text-xl tracking-tight text-gray-900">Bimcompliance</span>
+            <span className="font-bold text-xl tracking-tight text-gray-900">BimCompliance</span>
           </div>
           
           <div className="hidden md:flex items-center gap-8">
