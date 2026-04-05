@@ -54,7 +54,7 @@ export default function ContactForm() {
             viewport={{ once: true }}
             className="bg-white rounded-3xl p-8 lg:p-10 shadow-2xl border border-gray-100"
           >
-            <form action="https://formspree.io/f/YOUR_ENDPOINT" method="POST" className="space-y-6">
+            <form action="https://formspree.io/f/xwvwavow" method="POST" className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">{t('contact.nameLabel')}</label>
                 <div className="relative">
