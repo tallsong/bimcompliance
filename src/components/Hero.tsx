@@ -1,9 +1,11 @@
 import { motion } from "motion/react";
-import { ArrowRight, Play, CheckCircle2, Building2 } from "lucide-react";
+import { ArrowRight, Play, CheckCircle2, Building2, X } from "lucide-react";
+import { useState } from "react";
 import { useLanguage } from "../LanguageContext";
 
 export default function Hero() {
   const { t } = useLanguage();
+  const [isDemoOpen, setIsDemoOpen] = useState(false);
 
   return (
     <section className="relative pt-20 pb-24 lg:pt-32 lg:pb-40 overflow-hidden">
@@ -39,7 +41,11 @@ export default function Hero() {
             <a href="#contact" className="w-full sm:w-auto bg-brand text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-brand-dark transition-all flex items-center justify-center gap-2 shadow-lg shadow-brand/20">
               {t('hero.btnPrimary')} <ArrowRight className="w-5 h-5" />
             </a>
-            <button className="w-full sm:w-auto bg-white text-gray-900 border border-gray-200 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-50 transition-all flex items-center justify-center gap-2 shadow-sm">
+            <button
+              type="button"
+              onClick={() => setIsDemoOpen(true)}
+              className="w-full sm:w-auto bg-white text-gray-900 border border-gray-200 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-50 transition-all flex items-center justify-center gap-2 shadow-sm"
+            >
               <Play className="w-5 h-5 fill-current" /> {t('hero.btnSecondary')}
             </button>
           </div>
@@ -87,6 +93,31 @@ export default function Hero() {
           </div>
         </motion.div>
       </div>
+
+      {isDemoOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4">
+          <div className="relative w-full max-w-5xl">
+            <button
+              type="button"
+              onClick={() => setIsDemoOpen(false)}
+              className="absolute -top-12 right-0 text-white hover:text-gray-200 transition-colors"
+              aria-label="Close demo video"
+            >
+              <X className="w-8 h-8" />
+            </button>
+            <div className="aspect-video w-full overflow-hidden rounded-2xl bg-black shadow-2xl">
+              <iframe
+                className="h-full w-full"
+                src="https://www.youtube.com/embed/_4upRwm0M88?autoplay=1&rel=0&cc_load_policy=1&cc_lang_pref=en"
+                title="BIM Compliance Demo Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
