@@ -19,7 +19,8 @@ export const translations = {
       check1: "DIN/EN Standards",
       check2: "Real-time IFC Parsing",
       check3: "ESG Compliance",
-      mockupFile: "IFC_Model_Viewer_v2.0.exe",
+      check4: "Fire Safety (MBO / DIN 4102)",
+      mockupFile: "Upload_Hospital_IFC_Model.ifc",
       mockupViolation: "DIN 18040-1 VIOLATION"
     },
     // ProblemSolution
@@ -37,7 +38,7 @@ export const translations = {
       s1Title: "Real-time Intelligence",
       s1Desc: "Integrated AI checking happens during the design phase, not after it's finished.",
       s2Title: "Instant Validation",
-      s2Desc: "Parse 90MB+ IFC/Revit models in seconds against a comprehensive regulatory knowledge base.",
+      s2Desc: "Parse massive IFC/Revit models (100k+ elements) in seconds against a comprehensive regulatory knowledge base.",
       s3Title: "Reduced Rework",
       s3Desc: "Detect violations early and get actionable suggestions to fix them immediately."
     },
@@ -98,7 +99,8 @@ export const translations = {
       check1: "DIN/EN-Standards",
       check2: "Echtzeit-IFC-Parsing",
       check3: "ESG-Compliance",
-      mockupFile: "IFC_Modell_Viewer_v2.0.exe",
+      check4: "Brandschutz (MBO / DIN 4102)",
+      mockupFile: "Upload_Hospital_IFC_Model.ifc",
       mockupViolation: "VERSTOSS GEGEN DIN 18040-1"
     },
     // ProblemSolution
@@ -116,7 +118,7 @@ export const translations = {
       s1Title: "Echtzeit-Intelligenz",
       s1Desc: "Die integrierte KI-Prüfung erfolgt während der Planungsphase, nicht erst danach.",
       s2Title: "Sofortige Validierung",
-      s2Desc: "Analysieren Sie 90MB+ große IFC/Revit-Modelle in Sekundenbruchteilen anhand einer umfassenden regulatorischen Wissensdatenbank.",
+      s2Desc: "Analysieren Sie massive IFC/Revit-Modelle (100k+ Elemente) in Sekundenbruchteilen anhand einer umfassenden regulatorischen Wissensdatenbank.",
       s3Title: "Reduzierte Nacharbeit",
       s3Desc: "Erkennen Sie Verstöße frühzeitig und erhalten Sie umsetzbare Vorschläge zur sofortigen Behebung."
     },
