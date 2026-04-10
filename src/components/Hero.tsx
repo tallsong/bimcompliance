@@ -52,6 +52,9 @@ export default function Hero() {
 
           <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 text-sm font-medium text-gray-500">
             <div className="flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-green-500" /> {t('hero.check4')}
+            </div>
+            <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-green-500" /> {t('hero.check1')}
             </div>
             <div className="flex items-center gap-2">
