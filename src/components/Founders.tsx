@@ -65,17 +65,22 @@ export default function Founders() {
           >
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-8">
               <div className="w-24 h-24 rounded-full bg-gray-700 flex items-center justify-center shrink-0 border-2 border-gray-600 overflow-hidden">
-                <User className="w-12 h-12 text-gray-400" />
+                <img
+                  src="https://tallsong.github.io/images/profile.jpg"
+                  alt="Gaosong Chen"
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
               </div>
               <div className="text-center sm:text-left">
                 <h3 className="text-2xl font-bold mb-1">{t('founders.founder1Name')}</h3>
                 <p className="text-brand font-medium mb-3">{t('founders.founder1Title')}</p>
                 <a
-                  href="https://www.linkedin.com/in/cedarchen"
+                  href="https://www.linkedin.com/in/Gaosongchen"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-700 hover:bg-brand/20 hover:text-brand text-gray-400 transition-colors"
-                  aria-label="Cedar Chen LinkedIn"
+                  aria-label="Gaosong Chen LinkedIn"
                 >
                   <LinkedinIcon className="w-4 h-4" />
                 </a>
@@ -95,7 +100,12 @@ export default function Founders() {
           >
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-8">
               <div className="w-24 h-24 rounded-full bg-gray-700 flex items-center justify-center shrink-0 border-2 border-gray-600 overflow-hidden">
-                <User className="w-12 h-12 text-gray-400" />
+                <img
+                  src="https://media.licdn.com/dms/image/v2/D5603AQEbGqdaeXfkew/profile-displayphoto-crop_800_800/B56Z1ErxFLGwAM-/0/1774973819777?e=1777507200&v=beta&t=5lJPrG1mSOvGRXo7pt18VDQ-dV0aHWIzAuRgFSd6U7U"
+                  alt="Hagen Träger"
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
               </div>
               <div className="text-center sm:text-left">
                 <h3 className="text-2xl font-bold mb-1">{t('founders.founder2Name')}</h3>
