@@ -4,8 +4,12 @@ import { useState } from "react";
 import { useLanguage } from "../LanguageContext";
 
 export default function Hero() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
   const [isDemoOpen, setIsDemoOpen] = useState(false);
+  const demoVideoUrl =
+    language === 'de'
+      ? 'https://www.youtube.com/embed/pYGIxxqN3qQ?autoplay=1'
+      : 'https://www.youtube.com/embed/_4upRwm0M88?autoplay=1&rel=0&cc_load_policy=1&cc_lang_pref=en';
 
   return (
     <section className="relative pt-20 pb-24 lg:pt-32 lg:pb-40 overflow-hidden">
@@ -111,7 +115,7 @@ export default function Hero() {
             <div className="aspect-video w-full overflow-hidden rounded-2xl bg-black shadow-2xl">
               <iframe
                 className="h-full w-full"
-                src="https://www.youtube.com/embed/_4upRwm0M88?autoplay=1&rel=0&cc_load_policy=1&cc_lang_pref=en"
+                src={demoVideoUrl}
                 title="BIM Compliance Demo Video"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
