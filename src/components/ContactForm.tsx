@@ -6,7 +6,7 @@ export default function ContactForm() {
   const { t, language } = useLanguage();
 
   return (
-    <section id="contact" className="py-24 bg-white relative overflow-hidden">
+    <section id="contact" className="py-24 bg-gray-50 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute bottom-0 left-0 w-full h-1/2 bg-brand/5 -z-10 skew-y-3 translate-y-1/2" />
       
