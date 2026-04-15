@@ -156,7 +156,7 @@ export const translations = {
       founder1Bio: "Ein technischer Visionär, der sich auf den Aufbau skalierbarer Softwarearchitektur und fortschrittlicher KI-Systeme konzentriert. Gaosong entwickelte die Kern-Engine der agentischen KI von BimCompliance und kombinierte tiefes Wissen über große Sprachmodelle (LLMs) mit automatisiertem IFC-Daten-Parsing, um eine Compliance-Prüfung ohne Einrichtungsaufwand zu schaffen.",
       founder2Name: "Hagen Träger",
       founder2Title: "Mitgründer",
-      founder2Bio: "Ein angehender GTM-Stratege mit einem starken Fundament in der Planung und Umsetzung komplexer Projekte. Hagen bringt analytisches Denken, strukturiertes Projektmanagement und ein tiefes Interesse an plattformbasierten Technologielösungen im europäischen Markt mit. Er treibt Business Development, den Aufbau von Partnerschaften und die Entwicklung von Pilotprogrammen voran – mit dem Ziel, innovative ConTech mit etablierten Branchenakteuren zu verbinden"
+      founder2Bio: "Ein angehender GTM-Stratege mit einem starken Fundament in der Planung und Umsetzung komplexer Projekte. Hagen bringt analytisches Denken, strukturiertes Projektmanagement und ein tiefes Interesse an plattformbasierten Technologielösungen im europäischen Markt mit. Er treibt Business Development, den Aufbau von Partnerschaften und die Entwicklung von Pilotprogrammen voran – mit dem Ziel, innovative ConTech mit etablierten Branchenakteuren zu verbinden."
     },
     // ContactForm
     contact: {
