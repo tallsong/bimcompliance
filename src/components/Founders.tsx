@@ -76,7 +76,7 @@ export default function Founders() {
                 <h3 className="text-2xl font-bold mb-1">{t('founders.founder1Name')}</h3>
                 <p className="text-brand font-medium mb-3">{t('founders.founder1Title')}</p>
                 <a
-                  href="https://www.linkedin.com/in/Gaosongchen"
+                  href="https://www.linkedin.com/in/cedarchen"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-200 hover:bg-brand/20 hover:text-brand text-gray-600 transition-colors"
