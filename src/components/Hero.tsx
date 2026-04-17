@@ -77,45 +77,23 @@ export default function Hero() {
           transition={{ delay: 0.2, duration: 0.8 }}
           className="mt-20 relative max-w-5xl mx-auto"
         >
-          <div className="bg-gray-900 rounded-2xl shadow-2xl border border-gray-800 overflow-hidden">
-             {/* Mock Window Header */}
-             <div className="bg-gray-800 px-4 py-3 flex items-center gap-2 border-b border-gray-700">
-               <div className="w-3 h-3 rounded-full bg-red-500" />
-               <div className="w-3 h-3 rounded-full bg-yellow-500" />
-               <div className="w-3 h-3 rounded-full bg-green-500" />
-               <div className="flex-1 text-center text-xs text-gray-400 font-mono">bim-compliance-engine ~ bash</div>
-             </div>
-
-             {/* Mock Window Content */}
-             <div className="aspect-[21/9] p-6 sm:p-8 font-mono text-sm sm:text-base text-gray-300 flex flex-col justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand/10 to-transparent pointer-events-none" />
-
-                <div className="relative z-10 space-y-4">
-                  <div className="flex items-center gap-3">
-                    <span className="text-brand font-bold">$</span>
-                    <span className="text-gray-100">load_model</span>
-                    <span className="text-yellow-400">{t('hero.mockupFile')}</span>
+          <div className="aspect-[16/9] bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden p-4">
+             <div className="w-full h-full bg-gray-50 rounded-lg border border-dashed border-gray-300 flex items-center justify-center relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand/5 to-transparent pointer-events-none" />
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-brand/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <Building2 className="w-8 h-8 text-brand" />
                   </div>
-                  <div className="text-gray-500 ml-5">
-                    [INFO] Parsing IFC geometry...<br/>
-                    [INFO] Extracting metadata (104,231 elements found)...
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-brand font-bold">$</span>
-                    <span className="text-gray-100">run_compliance_check</span>
-                    <span className="text-blue-400">--standards DIN,ESG</span>
-                  </div>
-                  <div className="text-gray-500 ml-5">
-                    [INFO] Evaluating rules engine...
-                  </div>
-                  <div className="ml-5 p-3 mt-4 bg-red-500/10 border border-red-500/20 rounded-lg inline-block">
-                    <div className="flex items-center gap-2 text-red-400 font-bold mb-1">
-                      <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-                      {t('hero.mockupViolation')}
-                    </div>
-                    <div className="text-gray-400 text-xs sm:text-sm">
-                      Room 402: Door width 850mm (Required: 900mm minimum)
-                    </div>
+                  <p className="text-gray-400 font-mono text-sm">{t('hero.mockupFile')}</p>
+                </div>
+                {/* Simulated UI elements */}
+                <div className="absolute top-4 right-4 w-48 h-32 bg-white rounded-lg shadow-lg border border-gray-100 p-3 text-left">
+                  <div className="h-2 w-12 bg-red-100 rounded mb-2" />
+                  <div className="h-2 w-full bg-gray-100 rounded mb-1" />
+                  <div className="h-2 w-3/4 bg-gray-100 rounded" />
+                  <div className="mt-4 flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-red-500" />
+                    <span className="text-[10px] font-bold text-red-600">{t('hero.mockupViolation')}</span>
                   </div>
                 </div>
              </div>

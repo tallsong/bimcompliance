@@ -36,6 +36,7 @@ export default function ProblemSolution() {
             className="bg-gray-50 rounded-3xl p-8 lg:p-12 border border-gray-100"
           >
             <h3 className="text-xl font-bold text-gray-900 mb-8 flex items-center gap-3">
+              <span className="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 text-sm">01</span>
               {t('problems.col1Title')}
             </h3>
             <div className="space-y-8">
@@ -59,6 +60,7 @@ export default function ProblemSolution() {
             className="bg-brand/5 rounded-3xl p-8 lg:p-12 border border-brand/10 shadow-xl shadow-brand/5"
           >
             <h3 className="text-xl font-bold text-gray-900 mb-8 flex items-center gap-3">
+              <span className="w-8 h-8 rounded-full bg-brand/20 flex items-center justify-center text-brand text-sm">02</span>
               {t('problems.col2Title')}
             </h3>
             <div className="space-y-8">
