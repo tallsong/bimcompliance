@@ -78,22 +78,51 @@ export default function Hero() {
           className="mt-20 relative max-w-5xl mx-auto"
         >
           <div className="aspect-[16/9] bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden p-4">
-             <div className="w-full h-full bg-gray-50 rounded-lg border border-dashed border-gray-300 flex items-center justify-center relative">
+             <div className="w-full h-full bg-gray-50 rounded-lg border border-gray-200 flex flex-col p-8 relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-brand/5 to-transparent pointer-events-none" />
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-brand/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <Building2 className="w-8 h-8 text-brand" />
-                  </div>
-                  <p className="text-gray-400 font-mono text-sm">{t('hero.mockupFile')}</p>
+
+                {/* Mockup Top Bar */}
+                <div className="w-full flex justify-between items-center mb-8 border-b border-gray-200 pb-4">
+                   <div className="flex items-center gap-3">
+                      <div className="w-3 h-3 rounded-full bg-red-400" />
+                      <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                      <div className="w-3 h-3 rounded-full bg-green-400" />
+                   </div>
+                   <div className="h-6 w-32 bg-white border border-gray-200 rounded-md shadow-sm" />
                 </div>
-                {/* Simulated UI elements */}
-                <div className="absolute top-4 right-4 w-48 h-32 bg-white rounded-lg shadow-lg border border-gray-100 p-3 text-left">
-                  <div className="h-2 w-12 bg-red-100 rounded mb-2" />
-                  <div className="h-2 w-full bg-gray-100 rounded mb-1" />
-                  <div className="h-2 w-3/4 bg-gray-100 rounded" />
-                  <div className="mt-4 flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-red-500" />
-                    <span className="text-[10px] font-bold text-red-600">{t('hero.mockupViolation')}</span>
+
+                <div className="flex-1 flex items-center justify-center">
+                  {/* File Upload Card Mockup */}
+                  <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 w-full max-w-md text-left relative z-10">
+                    <div className="flex items-start gap-4 mb-6">
+                      <div className="w-12 h-12 bg-brand/10 rounded-lg flex items-center justify-center shrink-0">
+                        <Building2 className="w-6 h-6 text-brand" />
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-gray-900 font-semibold text-sm mb-1">{t('hero.mockupFile')}</p>
+                        <p className="text-gray-400 text-xs mb-3">42.5 MB • IFC4</p>
+                        {/* Progress Bar */}
+                        <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+                          <div className="h-full bg-brand w-3/4 rounded-full" />
+                        </div>
+                        <div className="flex justify-between items-center mt-2">
+                          <span className="text-brand text-xs font-medium">Scanning compliance...</span>
+                          <span className="text-gray-500 text-xs">75%</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Simulated UI elements (Alert Toast) */}
+                <div className="absolute top-24 right-8 w-64 bg-white rounded-lg shadow-xl border border-red-100 p-4 text-left z-20">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-red-500 mt-1.5 shrink-0" />
+                    <div>
+                      <div className="text-xs font-bold text-red-600 mb-1">{t('hero.mockupViolation')}</div>
+                      <div className="h-2 w-full bg-gray-100 rounded mb-1.5" />
+                      <div className="h-2 w-3/4 bg-gray-100 rounded" />
+                    </div>
                   </div>
                 </div>
              </div>

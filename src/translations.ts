@@ -26,13 +26,13 @@ export const translations = {
     // ProblemSolution
     problems: {
       sectionTitle: "The Compliance Gap",
-      sectionSubtitle: "Traditional BIM compliance is reactive. We make it proactive, integrated, and intelligent.",
+      sectionSubtitle: "Traditional BIM compliance is reactive, manual, and fragmented. We make it proactive, automated, and intelligent.",
       col1Title: "The Current Challenge",
       col2Title: "The BimCompliance Edge",
       p1Title: "Manual Checking",
-      p1Desc: "Architects spend thousands of hours manually verifying thousands of pages of regulations.",
+      p1Desc: "Architects spend countless hours manually verifying thousands of pages of complex regulations.",
       p2Title: "Error-Prone",
-      p2Desc: "Human oversight leads to missed violations, causing rework and costly delays after design.",
+      p2Desc: "Given the immense complexity of modern BIM models and building codes, manual oversights are inevitable—leading to costly downstream rework and project delays.",
       p3Title: "Not Scalable",
       p3Desc: "Increasingly complex ESG and technical standards (DIN, EN) make manual scaling impossible.",
       s1Title: "Real-time Intelligence",
@@ -117,13 +117,13 @@ export const translations = {
     // ProblemSolution
     problems: {
       sectionTitle: "Die Compliance-Lücke",
-      sectionSubtitle: "Traditionelle BIM-Compliance ist reaktiv. Wir machen sie proaktiv, integriert und intelligent.",
+      sectionSubtitle: "Traditionelle BIM-Compliance ist reaktiv, manuell und fragmentiert. Wir machen sie proaktiv, automatisiert und intelligent.",
       col1Title: "Die aktuelle Herausforderung",
       col2Title: "Der BimCompliance-Vorteil",
       p1Title: "Manuelle Prüfung",
-      p1Desc: "Architekten verbringen Tausende von Stunden damit, Tausende von Regulierungsseiten manuell zu überprüfen.",
+      p1Desc: "Architekten verbringen unzählige Stunden damit, Tausende von Seiten komplexer Vorschriften manuell zu überprüfen.",
       p2Title: "Fehleranfällig",
-      p2Desc: "Menschliche Versehen führen zu übersehenen Verstößen, was Nacharbeiten und teure Verzögerungen nach der Planung verursacht.",
+      p2Desc: "Angesichts der immensen Komplexität moderner BIM-Modelle und Bauvorschriften sind manuelle Versehen unvermeidlich – was zu kostspieligen Nacharbeiten und Projektverzögerungen führt.",
       p3Title: "Nicht skalierbar",
       p3Desc: "Zunehmend komplexe ESG- und technische Standards (DIN, EN) machen eine manuelle Skalierung unmöglich.",
       s1Title: "Echtzeit-Intelligenz",
