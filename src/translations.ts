@@ -2,6 +2,9 @@ export type Language = 'en' | 'de';
 
 export const translations = {
   en: {
+    meta: {
+      title: "A zero-setup AI compliance engine for BIM"
+    },
     // Navbar
     nav: {
       features: "Features",
@@ -93,6 +96,9 @@ export const translations = {
     }
   },
   de: {
+    meta: {
+      title: "Eine KI-Compliance-Engine fuer BIM ohne Setup"
+    },
     // Navbar
     nav: {
       features: "Funktionen",
