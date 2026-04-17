@@ -64,7 +64,7 @@ export const translations = {
       founder1Title: "Co-founder & CTO",
       founder1Bio: "A technical visionary focused on building scalable software architecture and advanced AI systems. Gaosong engineered the core BimCompliance Agentic AI engine, combining deep knowledge of Large Language Models (LLMs) with automated IFC data parsing to create zero-setup compliance auditing.",
       founder2Name: "Hagen Träger",
-      founder2Title: "Co-founder",
+      founder2Title: "Co-founder & CEO",
       founder2Bio: "An aspiring GTM strategist with a strong foundation in planning and executing complex projects. Hagen brings analytical thinking, structured project management, and a deep interest in platform-based technology solutions in the European market. He drives business development, the building of partnerships, and the development of pilot programs – with the goal of connecting innovative ConTech with established industry players."
     },
     // ContactForm
@@ -155,7 +155,7 @@ export const translations = {
       founder1Title: "Mitgründer & CTO",
       founder1Bio: "Ein technischer Visionär, der sich auf den Aufbau skalierbarer Softwarearchitektur und fortschrittlicher KI-Systeme konzentriert. Gaosong entwickelte die Kern-Engine der agentischen KI von BimCompliance und kombinierte tiefes Wissen über große Sprachmodelle (LLMs) mit automatisiertem IFC-Daten-Parsing, um eine Compliance-Prüfung ohne Einrichtungsaufwand zu schaffen.",
       founder2Name: "Hagen Träger",
-      founder2Title: "Mitgründer",
+      founder2Title: "Mitgründer & CEO",
       founder2Bio: "Ein angehender GTM-Stratege mit einem starken Fundament in der Planung und Umsetzung komplexer Projekte. Hagen bringt analytisches Denken, strukturiertes Projektmanagement und ein tiefes Interesse an plattformbasierten Technologielösungen im europäischen Markt mit. Er treibt Business Development, den Aufbau von Partnerschaften und die Entwicklung von Pilotprogrammen voran – mit dem Ziel, innovative ConTech mit etablierten Branchenakteuren zu verbinden."
     },
     // ContactForm
