@@ -9,6 +9,22 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+/**
+ * Utility to flatten a nested object into a single-level object with dot-notation keys.
+ * This enables O(1) translation lookups.
+ */
+function flattenObject(obj: any, prefix = ''): Record<string, string> {
+  return Object.keys(obj).reduce((acc: Record<string, string>, k) => {
+    const pre = prefix.length ? prefix + '.' : '';
+    if (typeof obj[k] === 'object' && obj[k] !== null && !Array.isArray(obj[k])) {
+      Object.assign(acc, flattenObject(obj[k], pre + k));
+    } else {
+      acc[pre + k] = obj[k];
+    }
+    return acc;
+  }, {});
+}
+
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [language, setLanguage] = useState<Language>('en');
 
@@ -22,23 +38,30 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     }
   }, []);
 
-  const t = (path: string): string => {
-    const keys = path.split('.');
-    let current: any = translations[language];
+  // Memoize flattened translations for the current language
+  const flattenedTranslations = React.useMemo(() => {
+    return flattenObject(translations[language]);
+  }, [language]);
 
-    for (const key of keys) {
-      if (current[key] === undefined) {
-        console.warn(`Translation missing for key: ${path} in language: ${language}`);
-        return path;
-      }
-      current = current[key];
+  // Optimized translation function with O(1) lookup
+  const t = React.useCallback((path: string): string => {
+    const result = flattenedTranslations[path];
+    if (result === undefined) {
+      console.warn(`Translation missing for key: ${path} in language: ${language}`);
+      return path;
     }
+    return result;
+  }, [flattenedTranslations, language]);
 
-    return current;
-  };
+  // Memoize context value to prevent unnecessary re-renders
+  const value = React.useMemo(() => ({
+    language,
+    setLanguage,
+    t
+  }), [language, t]);
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={value}>
       {children}
     </LanguageContext.Provider>
   );
