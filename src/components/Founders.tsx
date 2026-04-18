@@ -55,13 +55,13 @@ export default function Founders() {
           </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-stretch">
           {/* Founder 1 */}
           <motion.div
             initial={{ x: -20, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
-            className="bg-gray-50 backdrop-blur-sm rounded-3xl p-8 lg:p-10 border border-gray-200 hover:border-gray-300 transition-colors"
+            className="h-full bg-gray-50 backdrop-blur-sm rounded-3xl p-8 lg:p-10 border border-gray-200 hover:border-gray-300 transition-colors"
           >
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-8">
               <div className="w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center shrink-0 border-2 border-gray-300 overflow-hidden">
@@ -96,7 +96,7 @@ export default function Founders() {
             initial={{ x: 20, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
-            className="bg-gray-50 backdrop-blur-sm rounded-3xl p-8 lg:p-10 border border-gray-200 hover:border-gray-300 transition-colors"
+            className="h-full bg-gray-50 backdrop-blur-sm rounded-3xl p-8 lg:p-10 border border-gray-200 hover:border-gray-300 transition-colors"
           >
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-8">
               <div className="w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center shrink-0 border-2 border-gray-300 overflow-hidden">
