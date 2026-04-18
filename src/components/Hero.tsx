@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { ArrowRight, Play, CheckCircle2, Building2, X } from "lucide-react";
+import { ArrowRight, Play, CheckCircle2, X } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "../LanguageContext";
 import AIAuditTerminal from "./AIAuditTerminal";
