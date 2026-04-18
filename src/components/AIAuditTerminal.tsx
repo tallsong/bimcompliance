@@ -14,8 +14,13 @@ export default function AIAuditTerminal() {
   const [activeStepIndex, setActiveStepIndex] = useState(-1);
   const [isRunning, setIsRunning] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [showSuccessToast, setShowSuccessToast] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const logsContainerRef = useRef<HTMLDivElement>(null);
+  const generationTimeoutRef = useRef<number | null>(null);
+  const toastTimeoutRef = useRef<number | null>(null);
   const isInView = useInView(containerRef, { amount: 0.5, once: true });
 
   useEffect(() => {
@@ -47,10 +52,49 @@ export default function AIAuditTerminal() {
     }
   }, [activeStepIndex, isRunning]);
 
+  useEffect(() => {
+    return () => {
+      if (generationTimeoutRef.current) {
+        window.clearTimeout(generationTimeoutRef.current);
+      }
+      if (toastTimeoutRef.current) {
+        window.clearTimeout(toastTimeoutRef.current);
+      }
+    };
+  }, []);
+
   const startAudit = () => {
+    if (generationTimeoutRef.current) {
+      window.clearTimeout(generationTimeoutRef.current);
+      generationTimeoutRef.current = null;
+    }
+    if (toastTimeoutRef.current) {
+      window.clearTimeout(toastTimeoutRef.current);
+      toastTimeoutRef.current = null;
+    }
     setIsRunning(true);
     setIsFinished(false);
+    setIsGenerating(false);
+    setIsSuccess(false);
+    setShowSuccessToast(false);
     setActiveStepIndex(-1);
+  };
+
+  const handleGenerateTicket = () => {
+    if (isGenerating || isSuccess) return;
+
+    setIsGenerating(true);
+    setShowSuccessToast(false);
+
+    generationTimeoutRef.current = window.setTimeout(() => {
+      setIsGenerating(false);
+      setIsSuccess(true);
+      setShowSuccessToast(true);
+
+      toastTimeoutRef.current = window.setTimeout(() => {
+        setShowSuccessToast(false);
+      }, 2200);
+    }, 1500);
   };
 
   const getPrefixColor = (type: string) => {
@@ -76,6 +120,21 @@ export default function AIAuditTerminal() {
 
         {/* Left Column: Terminal Log */}
         <div className="bg-slate-50 shadow-lg shadow-slate-300/30 rounded-xl p-6 font-mono text-sm overflow-hidden relative flex flex-col h-[400px] border border-slate-200">
+          <AnimatePresence>
+            {showSuccessToast && (
+              <motion.div
+                initial={{ opacity: 0, y: -12, x: 12 }}
+                animate={{ opacity: 1, y: 0, x: 0 }}
+                exit={{ opacity: 0, y: -8, x: 8 }}
+                transition={{ duration: 0.25 }}
+                className="absolute top-3 right-3 z-30 bg-emerald-600 text-white px-3 py-2 rounded-md text-[11px] font-sans shadow-lg border border-emerald-500 flex items-center gap-2"
+              >
+                <CheckCircle2 className="w-3.5 h-3.5" />
+                Architect notified via Jira integration.
+              </motion.div>
+            )}
+          </AnimatePresence>
+
           <div className="flex items-center justify-between gap-2 mb-4 border-b border-slate-200 pb-3">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-red-500/80" />
@@ -138,11 +197,38 @@ export default function AIAuditTerminal() {
                 transition={{ delay: 0.5 }}
                 className="mt-6 border-t border-slate-200 pt-4"
               >
-                <button className="bg-red-50 text-rose-700 border border-red-200 px-4 py-2 rounded-lg hover:bg-red-100 transition-colors flex items-center gap-2 text-sm font-sans">
-                  <FileText className="w-4 h-4" />
-                  Generate BCF Report
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </button>
+                <motion.button
+                  onClick={handleGenerateTicket}
+                  disabled={isGenerating || isSuccess}
+                  animate={isGenerating ? { scale: [1, 1.015, 1] } : { scale: 1 }}
+                  transition={isGenerating ? { repeat: Infinity, duration: 0.9, ease: "easeInOut" } : { duration: 0.2 }}
+                  className={`px-4 py-2 rounded-lg transition-colors flex items-center gap-2 text-sm font-sans border ${
+                    isSuccess
+                      ? "bg-emerald-600 text-white border-emerald-700"
+                      : "bg-sky-600 text-white border-sky-700 hover:bg-sky-700"
+                  } ${(isGenerating || isSuccess) ? "cursor-not-allowed" : ""}`}
+                >
+                  {isGenerating ? (
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+                    >
+                      <Terminal className="w-4 h-4" />
+                    </motion.div>
+                  ) : isSuccess ? (
+                    <CheckCircle2 className="w-4 h-4" />
+                  ) : (
+                    <FileText className="w-4 h-4" />
+                  )}
+
+                  {isGenerating
+                    ? "⏳ Compiling BCF Payload..."
+                    : isSuccess
+                      ? "✅ Ticket #ARC-492 Created & Sent"
+                      : "🛠️ Generate BCF Ticket (Jira)"}
+
+                  {!isGenerating && !isSuccess && <ArrowRight className="w-4 h-4 ml-1" />}
+                </motion.button>
               </motion.div>
             )}
             <div />
