@@ -1,6 +1,3 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
 
 # Run and deploy your AI Studio app
 
@@ -21,6 +18,13 @@ View your app in AI Studio: https://ai.studio/apps/0a4a8903-7979-4a72-89c7-9bc25
 
 
 
+# logo
+
+```typescript
+import { Building2 } from "lucide-react";
+<Building2 className="w-8 h-8 text-brand" />
+
+```
 
 ## Deploy 
 ```bash
