@@ -3,11 +3,11 @@ import { useState, useEffect, useRef } from "react";
 import { Terminal, CheckCircle2, AlertCircle, FileText, ArrowRight, RotateCcw, Building2 } from "lucide-react";
 
 const steps = [
-  { id: 1, type: "info", prefix: "[SCANNING]", text: "Parsing IFC Geometry: Arcadis_Hospital_Block_A..." },
-  { id: 2, type: "info", prefix: "[SPATIAL]", text: "Room 402 (Ward) identified. Adjacency: Corridor A." },
-  { id: 3, type: "success", prefix: "[PATHFINDING]", text: "Analyzing egress route: Corridor A -> Stairwell-01. Route confirmed as Primary Escape." },
-  { id: 4, type: "warning", prefix: "[KNOWLEDGE]", text: "Retrieving German MBO §35... Regulation requires F90 fire rating for stairwell-connecting doors." },
-  { id: 5, type: "error", prefix: "[CRITICAL ERROR]", text: "DETECTION: Door ID-98274 is F30. Required: F90. [HIGH RISK]" },
+  { id: 1, type: "info",  prefix: "[SCANNING]",text: "Parsing geometry from XX-10-1280-9999-000000-ME-DFM-001.rvt..." },
+  { id: 2, type: "info", prefix: "[Spatial]",text: "Identified Room 402 (Ward) connected to Corridor A." },
+  { id: 3, type: "success",prefix: "[Pathfinding]", text: "Verified Corridor A as the primary egress route to Stairwell-01." },
+  { id: 4, type: "warning",prefix: "[Regulatory Mapping]", text: "Applying Brandenburg BbgBO §29 (Treppenräume). Doors connecting to primary stairwells in this building class require strict fire resistance (F90/T90)." },
+  { id: 5, type: "error",prefix: "[CRITICAL RISK DETECTED]", text: "Door ID-98274 is F30. Legal requirement: F90 (BbgBO §29)." },
 ];
 
 export default function AIAuditTerminal() {

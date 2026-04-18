@@ -22,7 +22,7 @@ export const translations = {
       check1: "DIN/EN Standards",
       check2: "Real-time IFC Parsing",
       check3: "ESG Compliance",
-      check4: "Fire Safety (MBO / DIN 4102)",
+      check4: "Fire Safety (BbgBO / DIN 4102)",
       mockupFile: "Upload_Hospital_IFC_Model.ifc",
       mockupViolation: "DIN 18040-1 VIOLATION"
     },
@@ -116,7 +116,7 @@ export const translations = {
       check1: "DIN/EN-Standards",
       check2: "Echtzeit-IFC-Parsing",
       check3: "ESG-Compliance",
-      check4: "Brandschutz (MBO / DIN 4102)",
+      check4: "Brandschutz (BbgBO / DIN 4102)",
       mockupFile: "Upload_Hospital_IFC_Model.ifc",
       mockupViolation: "VERSTOSS GEGEN DIN 18040-1"
     },
