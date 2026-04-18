@@ -15,7 +15,12 @@ export default function AIAuditTerminal() {
   const [isRunning, setIsRunning] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const logsEndRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { amount: 0.5, once: true });
+
+  useEffect(() => {
+    logsEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [activeStepIndex, isRunning, isFinished]);
 
   useEffect(() => {
     if (isInView && !isRunning && !isFinished) {
@@ -44,17 +49,17 @@ export default function AIAuditTerminal() {
 
   const getPrefixColor = (type: string) => {
     switch (type) {
-      case "info": return "text-blue-400";
-      case "success": return "text-green-400";
-      case "warning": return "text-yellow-400";
-      case "error": return "text-red-500 font-bold";
-      default: return "text-gray-400";
+      case "info": return "text-sky-400";
+      case "success": return "text-emerald-400";
+      case "warning": return "text-amber-400";
+      case "error": return "text-rose-400 font-bold";
+      default: return "text-slate-300";
     }
   };
 
   const getTextColor = (type: string) => {
-    if (type === "error") return "text-red-400 font-bold";
-    return "text-gray-300";
+    if (type === "error") return "text-rose-400 font-bold";
+    return "text-slate-200";
   };
 
   const isErrorDetected = activeStepIndex >= 4;
@@ -64,13 +69,13 @@ export default function AIAuditTerminal() {
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 bg-white p-4 rounded-2xl shadow-2xl border border-gray-200">
 
         {/* Left Column: Terminal Log */}
-        <div className="bg-slate-950 rounded-xl p-6 font-mono text-sm overflow-hidden relative flex flex-col h-[400px]">
-          <div className="flex items-center justify-between gap-2 mb-4 border-b border-slate-800 pb-3">
+        <div className="bg-slate-800 shadow-2xl shadow-slate-500/20 rounded-xl p-6 font-mono text-sm overflow-hidden relative flex flex-col h-[400px]">
+          <div className="flex items-center justify-between gap-2 mb-4 border-b border-slate-700 pb-3">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-red-500/80" />
               <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
               <div className="w-3 h-3 rounded-full bg-green-500/80" />
-              <span className="ml-2 text-slate-500 text-xs tracking-wider">AI_AUDIT_TERMINAL // SESSION_71A</span>
+              <span className="ml-2 text-slate-400 text-xs tracking-wider">AI_AUDIT_TERMINAL // SESSION_71A</span>
             </div>
 
             <AnimatePresence>
@@ -80,7 +85,7 @@ export default function AIAuditTerminal() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   onClick={startAudit}
-                  className="flex items-center gap-1.5 text-slate-400 hover:text-white bg-transparent border border-slate-700 hover:border-slate-500 hover:bg-slate-800 px-3 py-1 rounded text-xs transition-colors font-sans"
+                  className="flex items-center gap-1.5 text-slate-300 hover:text-white bg-transparent border border-slate-600 hover:border-slate-500 hover:bg-slate-700 px-3 py-1 rounded text-xs transition-colors font-sans"
                 >
                   <RotateCcw className="w-3 h-3" />
                   Re-run Audit
@@ -89,7 +94,7 @@ export default function AIAuditTerminal() {
             </AnimatePresence>
           </div>
 
-          <div className="flex-1 overflow-y-auto space-y-3 pr-2 scrollbar-thin scrollbar-thumb-slate-800">
+          <div className="flex-1 overflow-y-auto space-y-3 pr-2 scrollbar-thin scrollbar-thumb-slate-600">
             {activeStepIndex === -1 && isRunning && (
               <div className="text-slate-500">Initializing AI engine...</div>
             )}
@@ -125,15 +130,16 @@ export default function AIAuditTerminal() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="mt-6 border-t border-slate-800 pt-4"
+                className="mt-6 border-t border-slate-700 pt-4"
               >
-                <button className="bg-red-500/10 text-red-400 border border-red-500/30 px-4 py-2 rounded-lg hover:bg-red-500/20 transition-colors flex items-center gap-2 text-sm font-sans">
+                <button className="bg-red-500/10 text-rose-400 border border-red-500/30 px-4 py-2 rounded-lg hover:bg-red-500/20 transition-colors flex items-center gap-2 text-sm font-sans">
                   <FileText className="w-4 h-4" />
                   Generate BCF Report
                   <ArrowRight className="w-4 h-4 ml-1" />
                 </button>
               </motion.div>
             )}
+            <div ref={logsEndRef} />
           </div>
         </div>
 
