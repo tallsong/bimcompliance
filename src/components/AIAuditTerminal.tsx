@@ -15,6 +15,7 @@ export default function AIAuditTerminal() {
   const [isRunning, setIsRunning] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { amount: 0.5, once: true });
 
   useEffect(() => {
@@ -35,6 +36,10 @@ export default function AIAuditTerminal() {
       }
     }
   }, [activeStepIndex, isRunning]);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [activeStepIndex, isFinished]);
 
   const startAudit = () => {
     setIsRunning(true);
@@ -64,7 +69,7 @@ export default function AIAuditTerminal() {
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 bg-white p-4 rounded-2xl shadow-2xl border border-gray-200">
 
         {/* Left Column: Terminal Log */}
-        <div className="bg-slate-950 rounded-xl p-6 font-mono text-sm overflow-hidden relative flex flex-col h-[400px]">
+        <div className="bg-[#0B1120] rounded-xl p-6 font-mono text-sm overflow-hidden relative flex flex-col min-h-[450px] shadow-2xl ring-1 ring-slate-900/5">
           <div className="flex items-center justify-between gap-2 mb-4 border-b border-slate-800 pb-3">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-red-500/80" />
@@ -134,6 +139,7 @@ export default function AIAuditTerminal() {
                 </button>
               </motion.div>
             )}
+            <div ref={messagesEndRef} />
           </div>
         </div>
 
