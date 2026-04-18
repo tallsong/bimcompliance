@@ -1,5 +1,4 @@
 import { motion } from "motion/react";
-import { User } from "lucide-react";
 import { useLanguage } from "../LanguageContext";
 
 function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
