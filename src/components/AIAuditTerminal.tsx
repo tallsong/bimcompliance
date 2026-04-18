@@ -1,6 +1,6 @@
-import { motion, AnimatePresence } from "motion/react";
-import { useState, useEffect } from "react";
-import { Terminal, CheckCircle2, AlertCircle, FileText, ArrowRight } from "lucide-react";
+import { motion, AnimatePresence, useInView } from "motion/react";
+import { useState, useEffect, useRef } from "react";
+import { Terminal, CheckCircle2, AlertCircle, FileText, ArrowRight, RotateCcw } from "lucide-react";
 
 const steps = [
   { id: 1, type: "info", prefix: "[SCANNING]", text: "Parsing IFC Geometry: Arcadis_Hospital_Block_A..." },
@@ -14,6 +14,14 @@ export default function AIAuditTerminal() {
   const [activeStepIndex, setActiveStepIndex] = useState(-1);
   const [isRunning, setIsRunning] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { amount: 0.5, once: true });
+
+  useEffect(() => {
+    if (isInView && !isRunning && !isFinished) {
+      startAudit();
+    }
+  }, [isInView]);
 
   useEffect(() => {
     if (isRunning) {
@@ -29,11 +37,9 @@ export default function AIAuditTerminal() {
   }, [activeStepIndex, isRunning]);
 
   const startAudit = () => {
-    if (!isRunning) {
-      setIsRunning(true);
-      setIsFinished(false);
-      setActiveStepIndex(0);
-    }
+    setIsRunning(true);
+    setIsFinished(false);
+    setActiveStepIndex(-1);
   };
 
   const getPrefixColor = (type: string) => {
@@ -54,28 +60,33 @@ export default function AIAuditTerminal() {
   const isErrorDetected = activeStepIndex >= 4;
 
   return (
-    <div className="w-full flex flex-col items-center">
-      {!isRunning && !isFinished ? (
-        <button
-          onClick={startAudit}
-          className="mb-8 bg-brand text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-brand-dark transition-all flex items-center justify-center gap-3 shadow-lg shadow-brand/20 group"
-        >
-          <Terminal className="w-5 h-5 group-hover:scale-110 transition-transform" />
-          Run Compliance Audit on Arcadis Project
-        </button>
-      ) : (
-        <div className="mb-8 h-14" /> // placeholder to keep layout stable
-      )}
-
+    <div ref={containerRef} className="w-full flex flex-col items-center relative">
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 bg-white p-4 rounded-2xl shadow-2xl border border-gray-200">
 
         {/* Left Column: Terminal Log */}
         <div className="bg-slate-950 rounded-xl p-6 font-mono text-sm overflow-hidden relative flex flex-col h-[400px]">
-          <div className="flex items-center gap-2 mb-4 border-b border-slate-800 pb-3">
-            <div className="w-3 h-3 rounded-full bg-red-500/80" />
-            <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-            <div className="w-3 h-3 rounded-full bg-green-500/80" />
-            <span className="ml-2 text-slate-500 text-xs tracking-wider">AI_AUDIT_TERMINAL // SESSION_71A</span>
+          <div className="flex items-center justify-between gap-2 mb-4 border-b border-slate-800 pb-3">
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full bg-red-500/80" />
+              <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+              <div className="w-3 h-3 rounded-full bg-green-500/80" />
+              <span className="ml-2 text-slate-500 text-xs tracking-wider">AI_AUDIT_TERMINAL // SESSION_71A</span>
+            </div>
+
+            <AnimatePresence>
+              {isFinished && (
+                <motion.button
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  onClick={startAudit}
+                  className="flex items-center gap-1.5 text-slate-400 hover:text-white bg-transparent border border-slate-700 hover:border-slate-500 hover:bg-slate-800 px-3 py-1 rounded text-xs transition-colors font-sans"
+                >
+                  <RotateCcw className="w-3 h-3" />
+                  Re-run Audit
+                </motion.button>
+              )}
+            </AnimatePresence>
           </div>
 
           <div className="flex-1 overflow-y-auto space-y-3 pr-2 scrollbar-thin scrollbar-thumb-slate-800">
