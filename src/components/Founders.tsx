@@ -24,6 +24,7 @@ function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
 
 export default function Founders() {
   const { t } = useLanguage();
+  const founder2ImageSrc = `${import.meta.env.BASE_URL}images/founder2-profile.jpg`;
 
   return (
     <section id="founders" className="py-24 bg-white text-gray-900 relative overflow-hidden">
@@ -100,7 +101,7 @@ export default function Founders() {
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-8">
               <div className="w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center shrink-0 border-2 border-gray-300 overflow-hidden">
                 <img
-                  src="https://media.licdn.com/dms/image/v2/D5603AQEbGqdaeXfkew/profile-displayphoto-crop_800_800/B56Z1ErxFLGwAM-/0/1774973819777?e=1777507200&v=beta&t=5lJPrG1mSOvGRXo7pt18VDQ-dV0aHWIzAuRgFSd6U7U"
+                  src={founder2ImageSrc}
                   alt="Hagen Träger"
                   className="h-full w-full object-cover"
                   loading="lazy"
